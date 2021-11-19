@@ -6,7 +6,6 @@ import java.util.Locale;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import me.valizadeh.practices.handlebars.i18n.template.helper.MessageBundleHelper;
-import org.javamoney.moneta.format.CurrencyStyle;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -22,9 +21,6 @@ import org.springframework.validation.annotation.Validated;
 @Configuration
 @ConfigurationProperties("handlebars")
 public class HandlebarsConfiguration {
-
-    @NotNull
-    private CurrencyStyle currencyStyle;
 
     @NotNull
     private Locale locale;

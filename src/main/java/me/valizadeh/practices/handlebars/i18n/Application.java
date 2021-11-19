@@ -14,6 +14,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 @Slf4j
 public class Application {
 
+    public static final String OUTPUT = " \n\r{}: \n\r{}";
+
     public static void main(String[] args) throws IOException {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
         run(context);
@@ -21,15 +23,18 @@ public class Application {
 
     public static void run(ApplicationContext ctx) throws IOException {
         TemplateProvider templateProvider = ctx.getBean(TemplateProvider.class);
-        log.debug(templateProvider.getTemplate().apply(new User("Ali", Locale.US.toString())));
-        log.debug(templateProvider.getTemplate().apply(new User("Ali", "es")));
-        log.debug(templateProvider.getTemplate().apply(new User("Ali", Locale.FRENCH.toString())));
-        log.debug(templateProvider.getTemplate().apply(new User("Ali", "nl")));
+        log.debug(OUTPUT, Locale.US.toString(),
+            templateProvider.getTemplate().apply(new User("Ali", Locale.US.toString())));
+        log.debug(OUTPUT, "es", templateProvider.getTemplate().apply(new User("Ali", "es")));
+        log.debug(OUTPUT, Locale.FRANCE.toString(),
+            templateProvider.getTemplate().apply(new User("Ali", Locale.FRANCE.toString())));
+        log.debug(OUTPUT, "nl", templateProvider.getTemplate().apply(new User("Ali", "nl")));
     }
 
 
     @Value
     static class User {
+
         String fullName;
         String locale;
     }

@@ -1,4 +1,12 @@
 handlebars:
   locale: en_EN
-  resourceBaseNames: file:externalized_resources/labels, classpath:labels
+  resourceBaseNames: https://raw.githubusercontent.com/ali-v-1985/handlebars-i18n/master/externalized_resources/labels, classpath:labels
   template: classpath:example.hbs
+
+
+logging:
+  level:
+    root: ERROR
+    me.valizadeh: DEBUG
+  pattern:
+    console: "%msg%n"
