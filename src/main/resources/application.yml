@@ -1,0 +1,4 @@
+handlebars:
+  locale: en_EN
+  resourceBaseNames: file:externalized_resources/labels, classpath:labels
+  template: classpath:example.hbs
